@@ -11,6 +11,8 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.os.Build
+import androidx.navigation.compose.rememberNavController
+import com.code.quizzo.navigation.AppNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,8 +23,9 @@ class MainActivity : ComponentActivity() {
         setTheme(R.style.Theme_Quizzo)
         super.onCreate(savedInstanceState)
         hideSystemBars()
-
         setContent {
+            val navController = rememberNavController()
+            AppNavHost(navController = navController)
 
         }
     }
